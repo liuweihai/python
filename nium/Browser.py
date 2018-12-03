@@ -8,4 +8,4 @@ class Browser():
     def Ies(self):
         driver = webdriver.Ie()
         return driver
-    
+
