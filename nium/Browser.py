@@ -8,4 +8,7 @@ class Browser():
     def Ies(self):
         driver = webdriver.Ie()
         return driver
+    def FireFox(self):
+        driver = webdriver.Firefox()
+        return driver
 
