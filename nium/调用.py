@@ -4,4 +4,6 @@ from selenium import webdriver
 from fengzhuang import *
 driver = chromes()
 driver.get('https://www.baidu.com')
-Login(driver)
+# Login(driver)
+zhuce(driver)
+jubing(driver)
