@@ -4,6 +4,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
+
 def wait():
     time.sleep(1)
 def findId(driver,id):
@@ -51,6 +55,14 @@ def Login(driver):
     findSelectValue(driver,'nr','50')
     findSelectIndex(driver,'nr',0)
 
+#重写find_element
+def find_element(self, loc):
+    try:
+        WebDriverWait(self.driver,15).until(lambda driver:driver.find_element(*self.loc).is_displayed())
+        return self.driver.find_element(*self.loc)
+    except:
+        print("%s 页面未找到%s 元素" %(self,self.loc))
+
 def zhuce(driver):
     findLinkText(driver,'登录').click()
     findLinkText(driver,'立即注册').click()
@@ -72,9 +84,3 @@ def jubing(driver):
             driver.switch_to_window(i)
             print(driver.title)
 
-def chromes():
-    driver = webdriver.Chrome()
-    return driver
-def Edges():
-    driver = webdriver.Edge()
-    return driver
